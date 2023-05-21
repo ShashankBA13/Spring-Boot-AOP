@@ -12,36 +12,27 @@ import java.time.format.DateTimeFormatter;
 @SuppressWarnings("SpellCheckingInspection")
 @Aspect
 @Component
-public class EmployeeAspect {
+public class EmployeeControllerAspect {
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSSSSS");
 
-    //For Controller Layer
     @Before(value = "execution(* com.practice.controller.EmployeeController.*(..))")
     public void beforeAdvice(JoinPoint joinPoint) {
         LocalDateTime now = LocalDateTime.now();
         System.out.println("Request to " + joinPoint.getSignature() + " started at " + now.format(formatter));
     }
 
-    // For Controller Layer
+    /**
+     * Other advices to explore
+     *
+     * @AfterReturning()
+     * @AfterThrowing() <a href="https://websparrow.org/spring/spring-aop-aspectj-before-after-afterreturning-afterthrowing-and-around-annotation-example">Refer this link to lean more</a>
+     */
+
     @After(value = "execution(* com.practice.controller.EmployeeController.*(..))")
     public void afterAdvice(JoinPoint joinPoint) {
         LocalDateTime now = LocalDateTime.now();
-        System.out.println("Request to " + joinPoint.getSignature() + " ended at " + now.format(formatter));
-    }
-
-    //For Service layer
-    @Before(value = "execution(* com.practice.service.EmployeeService.*(..))")
-    public void beforeAdviceForService(JoinPoint joinPoint) {
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println("Request to " + joinPoint.getSignature() + " started at " + now.format(formatter));
-    }
-
-    // For Service Layer
-    @After(value = "execution(* com.practice.service.EmployeeService.*(..))")
-    public void afterAdviceforService(JoinPoint joinPoint) {
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println("Request to " + joinPoint.getSignature() + " ended at " + now.format(formatter));
+        System.out.println("Request to " + joinPoint.getSignature() + " ended at " + now.format(formatter) + "\n");
     }
 
 }
