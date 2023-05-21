@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 @SuppressWarnings("SpellCheckingInspection")
 @Aspect
 @Component
-public class EmployeeAspect {
+public class EmployeeControllerAspect {
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSSSSS");
 
@@ -27,21 +27,15 @@ public class EmployeeAspect {
     @After(value = "execution(* com.practice.controller.EmployeeController.*(..))")
     public void afterAdvice(JoinPoint joinPoint) {
         LocalDateTime now = LocalDateTime.now();
-        System.out.println("Request to " + joinPoint.getSignature() + " ended at " + now.format(formatter));
+        System.out.println("Request to " + joinPoint.getSignature() + " ended at " + now.format(formatter) + "\n");
     }
 
-    //For Service layer
-    @Before(value = "execution(* com.practice.service.EmployeeService.*(..))")
-    public void beforeAdviceForService(JoinPoint joinPoint) {
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println("Request to " + joinPoint.getSignature() + " started at " + now.format(formatter));
-    }
-
-    // For Service Layer
-    @After(value = "execution(* com.practice.service.EmployeeService.*(..))")
-    public void afterAdviceforService(JoinPoint joinPoint) {
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println("Request to " + joinPoint.getSignature() + " ended at " + now.format(formatter));
-    }
+/**
+ * Other advices to explore
+ *  @AfterReturning()
+ *  @AfterThrowing
+ *  https://websparrow.org/spring/spring-aop-aspectj-before-after-afterreturning-afterthrowing-and-around-annotation-example
+ * Refer the above link to learn more about those annotations
+ */
 
 }

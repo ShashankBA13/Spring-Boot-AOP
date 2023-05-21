@@ -1,0 +1,29 @@
+
+AOP - Aspect Oriented Programming
+AOP is a programming paradigm that aims to increase modularity by allowing the
+separation of cross-cutting concerns
+
+Depedncies:
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+
+Aspect: An aspect is a modularization of concern that cuts across multiple classes.
+    Unified logging can be an example of such cross-cutting concern.
+
+    Example: public class AdderAfterReturnAspect {
+                private Logger logger = LoggerFactory.getLogger(this.getClass());
+                public void afterReturn(Object returnValue) throws Throwable {
+                    logger.info("value return was {}",  returnValue);
+                }
+            }
+
+Joinpoint: A Joinpoint is a point during the execution of program, such as the execution of
+           a method or the handling of an exception.
+
+Pointcut: A poincut is a predicate that helps match an Advice to be applied by an Aspect at a
+          particular JoinPoint
+
+Advice: An advice is an action taken by an aspect at a particular JoinPoint. Different types of
+        advice include "around", "before", and "after".
