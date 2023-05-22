@@ -29,6 +29,7 @@ public class EmployeeControllerAspect {
      * @AfterThrowing() <a href="https://websparrow.org/spring/spring-aop-aspectj-before-after-afterreturning-afterthrowing-and-around-annotation-example">Refer this link to lean more</a>
      */
 
+   // This will execute reagrdless of the outcome of the method
     @After(value = "execution(* com.practice.controller.EmployeeController.*(..))")
     public void afterAdvice(JoinPoint joinPoint) {
         LocalDateTime now = LocalDateTime.now();

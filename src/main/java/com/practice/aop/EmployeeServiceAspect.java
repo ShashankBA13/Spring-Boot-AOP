@@ -19,11 +19,11 @@ public class EmployeeServiceAspect {
         return proceed;
     }
 
-
     /**
      * Now you can use @LogExecutionTime on top of any methods, it will print
      * the execution time of that method
      */
+
     @Around("@annotation(LogExecutionTime)")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();

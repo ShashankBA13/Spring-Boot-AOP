@@ -10,7 +10,12 @@ spring:
   jpa:
 #    database-platform: org.hibernate.dialect.MySQL5Dialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
 
 #    initialization-mode: always. A property under datasource.
+
+# Logging for cache
+logging:
+  level:
+    org.springframework.cache: DEBUG
