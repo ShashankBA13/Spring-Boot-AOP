@@ -8,9 +8,9 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-#    database-platform: org.hibernate.dialect.MySQL5Dialect
+    #    database-platform: org.hibernate.dialect.MySQL5Dialect
     hibernate:
-      ddl-auto: update
+    ddl-auto: update
     show-sql: true
 
 #    initialization-mode: always. A property under datasource.

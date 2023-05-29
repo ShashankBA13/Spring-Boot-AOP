@@ -10,8 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableCaching
 public class SpringBootAopApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootAopApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootAopApplication.class, args);
+    }
 
 }

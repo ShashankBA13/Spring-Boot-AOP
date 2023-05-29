@@ -1,6 +1,5 @@
 package com.practice.service;
 
-import com.practice.aop.LogExecutionTime;
 import com.practice.entity.Employee;
 import com.practice.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,6 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository repo;
 
-
     public ResponseEntity<Employee> addEmployee(Employee employee) {
         Employee employeeAdded = repo.save(employee);
         return ResponseEntity.ok(employeeAdded);
@@ -30,7 +28,7 @@ public class EmployeeService {
         return ResponseEntity.ok(employee);
     }
 
-    @CachePut(value="employee", key = "#employee.id")
+    @CachePut(value = "employee", key = "#employee.id")
     public ResponseEntity<Employee> updateEmployee(Employee employee, Integer employeeId) {
         System.out.println("Employee with id " + employeeId + " updated");
         Employee updatedEmployee = new Employee();

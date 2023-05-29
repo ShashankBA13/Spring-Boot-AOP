@@ -2,10 +2,8 @@ package com.practice.controller;
 
 import com.practice.entity.Employee;
 import com.practice.service.EmployeeService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +22,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{employeeId}")
-    public ResponseEntity<Employee> getEmployee(@PathVariable("employeeId") Integer employeeId){
+    public ResponseEntity<Employee> getEmployee(@PathVariable("employeeId") Integer employeeId) {
         return employeeService.findByEmployeeId(employeeId);
     }
 

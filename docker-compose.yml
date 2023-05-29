@@ -5,10 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: shashankba13/spring_aop:latest
+    restart: on-failure
     ports:
       - "9091:9091"
+    container_name: spring_aop
     environment:
-      SPRING_DATASOURCE_URL:  jdbc:mysql://db:3306/aop?autoReconnect=true
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/aop?autoReconnect=true
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
