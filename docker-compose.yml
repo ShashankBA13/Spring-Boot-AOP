@@ -26,3 +26,5 @@ services:
       MYSQL_DATABASE: aop
       MYSQL_USER: admin
       MYSQL_PASSWORD: root
+    restart: always
+    container_name: mysql

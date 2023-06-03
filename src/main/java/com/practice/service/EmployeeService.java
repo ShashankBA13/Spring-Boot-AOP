@@ -1,6 +1,8 @@
 package com.practice.service;
 
 import com.practice.entity.Employee;
+import com.practice.entity.EmployeeDTO;
+import com.practice.repository.AddressRepository;
 import com.practice.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -8,7 +10,9 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.io.PrintStream;
 import java.util.List;
 
 @Service
@@ -17,9 +21,14 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository repo;
 
-    public ResponseEntity<Employee> addEmployee(Employee employee) {
-        Employee employeeAdded = repo.save(employee);
-        return ResponseEntity.ok(employeeAdded);
+    @Autowired
+    private AddressRepository addressRepository;
+
+    @Transactional
+    public ResponseEntity<Employee> addEmployee(EmployeeDTO employee) {
+//        Employee employeeAdded = repo.save(employee);
+//        return ResponseEntity.ok(employeeAdded);
+        return null;
     }
 
     @Cacheable(value = "employee", key = "#employeeId", unless = "#result == null")

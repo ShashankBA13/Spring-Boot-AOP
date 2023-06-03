@@ -1,5 +1,5 @@
 server:
-  port: 9091
+  port: 9092
 
 spring:
   datasource:
@@ -8,18 +8,13 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       show-sql: true
 
-#    initialization-mode: always.  A property under datasource.
-
-# Logging for cache
 logging:
   level:
     org.springframework.cache: DEBUG
 
-#Simple message
-message:
+dev-message: |
   Hello from application.properties

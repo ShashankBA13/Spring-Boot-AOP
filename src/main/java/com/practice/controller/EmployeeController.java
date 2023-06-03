@@ -1,23 +1,26 @@
 package com.practice.controller;
 
 import com.practice.entity.Employee;
+import com.practice.entity.EmployeeDTO;
 import com.practice.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
 
-    @Autowired(required = true)
+    @Autowired()
     private EmployeeService employeeService;
 
     @PostMapping("/add")
-    public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee) {
+    public ResponseEntity<?> addEmployee(@RequestBody @Valid EmployeeDTO employee) {
         return employeeService.addEmployee(employee);
     }
 
