@@ -39,7 +39,7 @@ http://localhost:9091/employee/add
 In the body send this data
 
     {
-       "name": "Some Name
+       "name": "Some Name"
     }
 ```
 
